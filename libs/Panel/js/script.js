@@ -35,4 +35,15 @@ $(document).ready(function() {
 					$('#iletisim').click(function(){
 						location = '?page=iletisim';
 					});
-				});
+				});$(document).ready(function(e){
+						$('form').submit(function(){
+							if($('#isSubmitted').val() == 'true'){
+								if($('#txt').val() == ''){
+									notify('error', 'Lütfen Text alanını doldurunuz');
+									$('#isSubmitted').val('false');
+									return false;
+								}
+							}
+							
+						});
+				   });

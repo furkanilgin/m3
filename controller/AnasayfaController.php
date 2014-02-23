@@ -8,4 +8,8 @@ class AnasayfaController{
 	
 	}
 
+	public function save(){
+		
+		
+	}
 }
