@@ -2,4 +2,5 @@
 	<page name="test" model="Test.php" view="Test.xhtml" controller="TestController.php" />
 	<page name="account" model="Account.php" view="Account.xhtml" controller="AccountController.php" />
 	<page name="home" model="Home.php" view="Home.xhtml" controller="HomeController.php" />
+	<page name="anasayfa" model="Anasayfa.php" view="Anasayfa.xhtml" controller="AnasayfaController.php" />
 </pages>
