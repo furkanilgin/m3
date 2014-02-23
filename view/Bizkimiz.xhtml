@@ -14,13 +14,15 @@
 		</menuItem>
 	</menu>
 	<panel property="#{bizkimiz->p_Panel}" title="Biz Kimiz">
+		<input id="id" name="id" label="Id" display="false" />
 		<input id="adsoyad" name="adsoyad" label="Ad Soyad" required="true" />
 		<file id="fotograf" name="fotograf" label="Fotoğraf" required="true" />
 		<textarea id="aciklama" name="aciklama" label="Açıklama" required="true" />
 		<button id="save" name="save" action="save();" />
 		<datagrid>
+			<column type="data" title="No" width="5%" />
 			<column type="data" title="Ad Soyad" width="25%" />
-			<column title="Fotoğraf" width="20%">
+			<column title="Fotoğraf" width="15%">
 				<imageLink />
 			</column>
 			<column type="data" title="Açıklama" width="35%" />

@@ -23,6 +23,7 @@ class AccountController extends Controller{
 			$this->db->exec("UPDATE users SET 
 								username='".$this->account->p_Panel->panelItemList[0]->text."', 
 								password='".$this->account->p_Panel->panelItemList[1]->text."'");
+								
 			Notification::success("Kullanıcı bilgileri başarıyla değiştirildi");
 		}
 		else{

@@ -31,4 +31,37 @@ $(document).ready(function() {
 					$('#biz_kimiz').click(function(){
 						location = '?page=bizkimiz';
 					});
-				});
+				});$(document).ready(function(e){
+						$('form').submit(function(){
+							if($('#isSubmitted').val() == 'true'){
+								if($('#adsoyad').val() == ''){
+									notify('error', 'Lütfen Ad Soyad alanını doldurunuz');
+									$('#isSubmitted').val('false');
+									return false;
+								}
+							}
+							
+						});
+				   });$(document).ready(function(e){
+						$('form').submit(function(){
+							if($('#isSubmitted').val() == 'true'){
+								if($('#fotograf').val() == ''){
+									notify('error', 'Lütfen Fotoğraf alanını doldurunuz');
+									$('#isSubmitted').val('false');
+									return false;
+								}
+							}
+							
+						});
+				   });$(document).ready(function(e){
+						$('form').submit(function(){
+							if($('#isSubmitted').val() == 'true'){
+								if($('#aciklama').val() == ''){
+									notify('error', 'Lütfen Açıklama alanını doldurunuz');
+									$('#isSubmitted').val('false');
+									return false;
+								}
+							}
+							
+						});
+				   });
