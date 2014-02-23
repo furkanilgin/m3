@@ -7,4 +7,8 @@ class AccountController{
 	public function load(){
 	
 	}
+	
+	public function save(){
+	
+	}
 }
