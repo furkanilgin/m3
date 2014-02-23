@@ -11,7 +11,7 @@ class TestController{
 			array(4, './view/images/logo2.png', 6)
 		);
 		
-		$this->test->p_Panel->panelItemList[1]->items = array("1" => "city1", "2" => "city2", "3" => "city3");
+		$this->test->p_Panel->panelItemList[2]->items = array("1" => "city1", "2" => "city2", "3" => "city3");
 	}
 	
 	public function edit(){

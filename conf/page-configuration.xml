@@ -1,4 +1,5 @@
 <pages>
 	<page name="test" model="Test.php" view="Test.xhtml" controller="TestController.php" />
-	<page name="test2" model="Test2.php" view="Test2.xhtml" controller="Test2Controller.php" />
+	<page name="account" model="Account.php" view="Account.xhtml" controller="AccountController.php" />
+	<page name="home" model="Home.php" view="Home.xhtml" controller="HomeController.php" />
 </pages>

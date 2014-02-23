@@ -1,0 +1,19 @@
+<view>
+	<pageTop property="#{home->p_Pagetop}">
+		<logo src="./view/images/logo.jpg" height="76" width="75" top="10" />
+	</pageTop>
+	<menu property="#{home->m_Menu}">
+		<menuItem id="account" type="account" href="account" />
+		<menuItem id="logout" type="logout" action="logoutClick();" />
+		<menuItem id="anasayfa" title="Anasayfa" href="anasayfa" />
+		<menuItem id="hakkimizda" title="Hakkımızda" href="hakkimizda" />
+		<menuItem id="biz_kimiz" title="Biz Kimiz" href="biz_kimiz" />
+		<menuItem id="projeler" title="Projeler">
+			<subMenuItem title="Albüm Ekle" href="album"></subMenuItem>
+			<subMenuItem title="Fotoğraf Ekle" href="fotograf"></subMenuItem>
+		</menuItem>
+		<menuItem id="iletisim" title="İletişim" href="iletisim" />
+	</menu>
+	<panel title="Metreküp Yönetici Paneli" property="#{home->p_Panel}">
+	</panel>
+</view>
