@@ -1,0 +1,33 @@
+<view>
+	<pageTop property="#{test->p_Pagetop}">
+		<logo href="home.php" src="./view/images/logo.png" height="40" width="156" top="45" />
+	</pageTop>
+	<menu property="#{test->m_Menu}">
+		<menuItem id="account" type="account" href="account" />
+		<menuItem id="logout" type="logout" action="logoutClick();" />
+		<menuItem id="menu1" title="Page 1" href="page1">
+			<subMenuItem title="Page 1 sub 1" href="page1sub1"></subMenuItem>
+		</menuItem>
+		<menuItem id="menu2" title="Page 2" current="yes">
+			<subMenuItem title="Page 2 sub 1" href="page2sub1"></subMenuItem>
+			<subMenuItem title="Page 2 sub 2" href="page2sub2" current="yes"></subMenuItem>
+		</menuItem>
+	</menu>
+	<panel title="Title" property="#{test->p_Panel}">
+		<input id="field1" name="field1" label="Field 1" required="true" />
+		<select id="field2" name="field2" change="selectChange();" label="Field 2" />
+		<file id="field3" name="field3" label="Field 3" />
+		<button id="save" name="save" action="save();" />
+		<datagrid>
+			<column type="data" title="Column 1" width="25%" />
+			<column title="Column 2" width="25%">
+				<imageLink />
+			</column>
+			<column type="data" title="Column 3" width="25%" />
+			<column title="Ayarlar" width="25%">
+				<editButton title="Edit" action="edit();" />
+				<deleteButton title="Delete" action="delete();" />
+			</column>
+		</datagrid>
+	</panel>
+</view>
