@@ -22,11 +22,12 @@ $(document).pngFix( );
 <?php
 require_once('../libs/Database.php');
 
-Database::connect();
+$db = Database::connect();
 
 if(isset($_POST["login"])){
-	$sql = mysql_query("SELECT * FROM users WHERE username='".mysql_real_escape_string($_POST["user"])."' AND password='".mysql_real_escape_string($_POST["pass"])."'");
-	if(mysql_num_rows($sql)>0){
+	$stmt = $db->query("SELECT * FROM users WHERE username='".mysql_real_escape_string($_POST["user"])."' AND password='".mysql_real_escape_string($_POST["pass"])."'");
+	$rows = $stmt->fetchAll();
+	if(count($rows)){
 		session_start();
 		$_SESSION["valid_user"] = mysql_real_escape_string($_POST["user"]);
 		if(isset($_POST["login-check"])){

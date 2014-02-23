@@ -1,7 +1,8 @@
 <?php
 require_once("./XmlToComponentArray.php");
 require_once("./Notification.php");
-require_once("../Controller.php");
+require_once("./Controller.php");
+require_once("../Database.php");
 
 class Framework{
 
