@@ -30,7 +30,7 @@ if(isset($_POST["login"])){
 			setcookie('user', mysql_real_escape_string($_POST["user"]));
 			setcookie('pass', mysql_real_escape_string($_POST["pass"]));
 		}
-		echo "<script>location='../?page=test';</script>";
+		echo "<script>location='../?page=home';</script>";
 	}
 	else{
 		echo "<script>alert('Kullanıcı adı veya şifre hatalı');</script>";

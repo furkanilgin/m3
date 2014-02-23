@@ -15,7 +15,7 @@ $(document).ready(function() {
 					});
 				});$(document).ready(function(){
 					$('#logout').click(function(){
-						$('form').append('<input id="action" name="action" type="hidden" value="logoutClick();"  />');
+						$('form').append('<input id="action" name="action" type="hidden" value="logout();"  />');
 						$('form').submit();
 						$('#action').remove();
 					});
