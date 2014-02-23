@@ -34,16 +34,17 @@ class Panel{
 			$datagridIndex = 0;
 			foreach($this->panelItemList as $panelItem){
 				if(get_class($panelItem) == 'Input' || get_class($panelItem) == 'Select' 
-						|| get_class($panelItem) == 'File' || get_class($panelItem) == 'Button'){
+						|| get_class($panelItem) == 'File' || get_class($panelItem) == 'Button'
+						|| get_class($panelItem) == 'Textarea'){
 					if($panelItemIndex == 0){
 						$html .= '<table border="0" cellpadding="0" cellspacing="0"  id="id-form" style="margin-bottom:20px;">';
 					}
 					$html .= '<tr>';
 					if(get_class($panelItem) == 'Button'){
-						$html .= '<th>'.$panelItem->label.'</th>';
+						$html .= '<th valign="top">'.$panelItem->label.'</th>';
 					}
 					else{
-						$html .= '<th>'.$panelItem->label.':</th>';
+						$html .= '<th valign="top">'.$panelItem->label.':</th>';
 					}
 					$html .= '<td>'.$panelItem->getHtml().'</td>
 							</tr>';

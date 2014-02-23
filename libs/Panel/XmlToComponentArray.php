@@ -14,6 +14,7 @@ require_once("./components/Input.php");
 require_once("./components/Select.php");
 require_once("./components/File.php");
 require_once("./components/Button.php");
+require_once("./components/Textarea.php");
 
 class XmlToComponentArray{
 
@@ -75,6 +76,7 @@ class XmlToComponentArray{
 				$component = new Panel();
 				$component->property = (string) $pageNode["property"];
 				$component->title = $pageNode["title"];
+				$component->html = $pageNode["html"];
 				foreach($pageNode->children() as $child){
 					if($child->getName() == "input"){
 						$inputComponent = new Input();
@@ -83,7 +85,6 @@ class XmlToComponentArray{
 						$inputComponent->label = $child["label"];
 						$inputComponent->text = $_POST[(string)$inputComponent->name];
 						$inputComponent->required = $child["required"];
-						$inputComponent->html = $child["html"];
 						$component->panelItemList[] = $inputComponent;
 					}
 					else if($child->getName() == "select"){
@@ -109,6 +110,16 @@ class XmlToComponentArray{
 						$buttonComponent->text = $child["text"];
 						$buttonComponent->action = $child["action"];
 						$component->panelItemList[] = $buttonComponent;
+					}
+					else if($child->getName() == "textarea"){
+						$textareaComponent = new Textarea();
+						$textareaComponent->id = $child["id"];
+						$textareaComponent->name = $child["name"];
+						$textareaComponent->label = $child["label"];
+						$textareaComponent->text = $_POST[(string)$textareaComponent->name];
+						$textareaComponent->required = $child["required"];
+						$textareaComponent->editor = $child["editor"];
+						$component->panelItemList[] = $textareaComponent;
 					}
 					else if($child->getName() == "datagrid"){
 						foreach($pageNode->datagrid as $datagrid){
