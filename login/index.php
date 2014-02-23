@@ -20,7 +20,10 @@ $(document).pngFix( );
 </head>
 
 <?php
-include 'dbinc.php';
+require_once('../libs/Database.php');
+
+Database::connect();
+
 if(isset($_POST["login"])){
 	$sql = mysql_query("SELECT * FROM users WHERE username='".mysql_real_escape_string($_POST["user"])."' AND password='".mysql_real_escape_string($_POST["pass"])."'");
 	if(mysql_num_rows($sql)>0){
