@@ -29,17 +29,13 @@ $(document).ready(function() {
 					});
 				});$(document).ready(function(){
 					$('#biz_kimiz').click(function(){
-						location = '?page=biz_kimiz';
-					});
-				});$(document).ready(function(){
-					$('#iletisim').click(function(){
-						location = '?page=iletisim';
+						location = '?page=bizkimiz';
 					});
 				});$(document).ready(function(e){
 						$('form').submit(function(){
 							if($('#isSubmitted').val() == 'true'){
-								if($('#txt').val() == ''){
-									notify('error', 'Lütfen Text alanını doldurunuz');
+								if($('#projeadi').val() == ''){
+									notify('error', 'Lütfen Proje Adı alanını doldurunuz');
 									$('#isSubmitted').val('false');
 									return false;
 								}
