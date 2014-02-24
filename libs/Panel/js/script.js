@@ -34,8 +34,8 @@ $(document).ready(function() {
 				});$(document).ready(function(e){
 						$('form').submit(function(){
 							if($('#isSubmitted').val() == 'true'){
-								if($('#adsoyad').val() == ''){
-									notify('error', 'Lütfen Ad Soyad alanını doldurunuz');
+								if($('#projeadi').val() == ''){
+									notify('error', 'Lütfen Proje Adı alanını doldurunuz');
 									$('#isSubmitted').val('false');
 									return false;
 								}
@@ -46,18 +46,7 @@ $(document).ready(function() {
 						$('form').submit(function(){
 							if($('#isSubmitted').val() == 'true'){
 								if($('#fotograf').val() == ''){
-									notify('error', 'Lütfen Fotoğraf alanını doldurunuz');
-									$('#isSubmitted').val('false');
-									return false;
-								}
-							}
-							
-						});
-				   });$(document).ready(function(e){
-						$('form').submit(function(){
-							if($('#isSubmitted').val() == 'true'){
-								if($('#aciklama').val() == ''){
-									notify('error', 'Lütfen Açıklama alanını doldurunuz');
+									notify('error', 'Lütfen Kapak Fotoğrafı alanını doldurunuz');
 									$('#isSubmitted').val('false');
 									return false;
 								}
