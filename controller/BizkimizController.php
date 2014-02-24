@@ -29,6 +29,15 @@ class BizkimizController extends Controller{
 		else{ //edit
 			if(!empty($this->bizkimiz->p_Panel->panelItemList[2]->filename)){
 				if($this->bizkimiz->p_Panel->panelItemList[2]->upload("./upload/") == "true"){
+					
+					$stmt = $this->db->query("SELECT * FROM bizkimiz WHERE id='".$this->bizkimiz->p_Panel->panelItemList[0]->text."'");
+					$row = $stmt->fetch(PDO::FETCH_ASSOC);
+					/** delete old one */
+					if(file_exists("../../".$row["fotograf"])){
+						unlink("../../".$row["fotograf"]);
+					}
+					
+					// update db
 					$this->db->exec("UPDATE bizkimiz SET 
 										adsoyad='".$this->bizkimiz->p_Panel->panelItemList[1]->text."',
 										fotograf='./upload/".$this->bizkimiz->p_Panel->panelItemList[2]->filename."',
@@ -68,6 +77,10 @@ class BizkimizController extends Controller{
 		$stmt = $this->db->query("SELECT * FROM bizkimiz LIMIT ".($_POST["rowIndex"]-1).",1");
 		$row = $stmt->fetch(PDO::FETCH_ASSOC);
 		$this->db->exec("DELETE FROM bizkimiz WHERE id='".$row["id"]."'");
+
+		if(file_exists("../../".$row["fotograf"])){
+			unlink("../../".$row["fotograf"]);
+		}
 		
 		Notification::success($this->bizkimiz->p_Panel->panelItemList[0]->text." nolu kayıt başarıyla silindi");
 		$this->empty_fields();
