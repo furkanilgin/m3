@@ -31,15 +31,4 @@ $(document).ready(function() {
 					$('#biz_kimiz').click(function(){
 						location = '?page=bizkimiz';
 					});
-				});$(document).ready(function(e){
-						$('form').submit(function(){
-							if($('#isSubmitted').val() == 'true'){
-								if($('#fotograf').val() == ''){
-									notify('error', 'Lütfen Kapak Fotoğrafı alanını doldurunuz');
-									$('#isSubmitted').val('false');
-									return false;
-								}
-							}
-							
-						});
-				   });
+				});

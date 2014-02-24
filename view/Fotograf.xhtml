@@ -14,15 +14,17 @@
 		</menuItem>
 	</menu>
 	<panel property="#{fotograf->p_Panel}" title="Fotograf Ekle">
+		<input id="id" name="id" label="Id" display="false" />
 		<select id="proje" name="proje" label="Proje" />
-		<file id="fotograf" name="fotograf" label="Kapak Fotoğrafı" required="true" />
+		<file id="fotograf" name="fotograf" label="Fotoğraf" required="true" />
 		<button id="save" name="save" action="save();" />
 		<datagrid>
+			<column type="data" title="No" width="5%" />
 			<column type="data" title="Proje" width="25%" />
 			<column title="Fotoğraf" width="25%">
 				<imageLink />
 			</column>
-			<column title="Ayarlar" width="25%">
+			<column title="Ayarlar" width="20%">
 				<editButton title="Edit" action="edit();" />
 				<deleteButton title="Delete" action="delete();" />
 			</column>

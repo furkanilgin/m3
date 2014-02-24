@@ -78,7 +78,7 @@ class ProjeController extends Controller{
 			unlink("../../".$row["fotograf"]);
 		}
 		
-		Notification::success($this->proje->p_Panel->panelItemList[0]->text." nolu kayıt başarıyla silindi");
+		Notification::success($row["id"]." nolu kayıt başarıyla silindi");
 		$this->empty_fields();
 		$this->fill_datatable();
 	}
