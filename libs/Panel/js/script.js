@@ -34,17 +34,6 @@ $(document).ready(function() {
 				});$(document).ready(function(e){
 						$('form').submit(function(){
 							if($('#isSubmitted').val() == 'true'){
-								if($('#projeadi').val() == ''){
-									notify('error', 'Lütfen Proje Adı alanını doldurunuz');
-									$('#isSubmitted').val('false');
-									return false;
-								}
-							}
-							
-						});
-				   });$(document).ready(function(e){
-						$('form').submit(function(){
-							if($('#isSubmitted').val() == 'true'){
 								if($('#fotograf').val() == ''){
 									notify('error', 'Lütfen Kapak Fotoğrafı alanını doldurunuz');
 									$('#isSubmitted').val('false');
