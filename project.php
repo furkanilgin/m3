@@ -24,6 +24,7 @@
   </head>
 
   <body>
+  
 
     <!-- Fixed navbar -->
     <div class="navbar" role="navigation">
@@ -31,13 +32,13 @@
 
         <div class="collapse navbar-collapse">
          <ul class="nav navbar-nav">
-            <li><a href="./index.htm">ANASAYFA</a></li>
+            <li><a href="./index.php">ANASAYFA</a></li>
             <li><a>|</a></li>
-            <li><a href="./about.htm">HAKKIMIZDA</a></li>
+            <li><a href="./about.php">HAKKIMIZDA</a></li>
             <li><a>|</a></li>
-            <li><a href="./who.htm">BİZ KİMİZ</a></li>
+            <li><a href="./who.php">BİZ KİMİZ</a></li>
             <li><a>|</a></li>
-            <li class="active"><a href="./project.htm">PROJELER</a></li>
+            <li class="active"><a href="./project.php">PROJELER</a></li>
             <li><a>|</a></li>
             <li><a href="./contact.htm">İLETİŞİM</a></li>
 
@@ -58,22 +59,40 @@
         <div class="col-sm-9" >
 	<h2>PROJELER</h2>
 <div id="content">
+<?php
+
+	require_once("./admin/libs/Database.php");
+	
+	$db = Database::connect();
+	$stmt = $db->query("SELECT * FROM proje");
+	$projeler = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+	for($i=0;$i<count($projeler);$i++){
+		if($i%4 == 0){
+			echo "<p>";
+		}
+		echo '<a class="fancybox" href="admin/'.$projeler[$i]["fotograf"].'" data-fancybox-group="gallery'.$i.'"><img src="admin/'.$projeler[$i]["fotograf"].'" height="150" width="150" /></a>';
+		$stmt = $db->query("SELECT * FROM proje_fotograflari WHERE proje_id='".$projeler[$i]["id"]."'");
+		$proje_fotograflari = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		for($j=0;$j<count($proje_fotograflari);$j++){
+			echo '<a class="fancybox" style="display:none;" href="admin/'.$proje_fotograflari[$j]["fotograf"].'" data-fancybox-group="gallery'.$i.'"><img src="admin/'.$proje_fotograflari[$j]["fotograf"].'" alt="" /></a>';
+		}
+		if($i%4 == 4){
+			echo "</p>";
+		}
+	}
+	
+?>
+
 <p>
- 	<a class="fancybox" href="gallery/1_b.jpg" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet"><img src="gallery/1_s.jpg" alt="" /></a>
+ 	<a class="fancybox" href="gallery/1_b.jpg" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet"><img src="gallery/1_s.jpg" alt="" style="display:none;"/></a>
 
-		<a class="fancybox" href="gallery/2_b.jpg" data-fancybox-group="gallery" title="Etiam quis mi eu elit temp"><img src="gallery/2_s.jpg" alt="" /></a>
+		<a class="fancybox" href="gallery/2_b.jpg" data-fancybox-group="gallery" title="Etiam quis mi eu elit temp"><img src="gallery/2_s.jpg" alt="" style="display:none;" /></a>
 
-		<a class="fancybox" href="gallery/3_b.jpg" data-fancybox-group="gallery" title="Cras neque mi, semper leon"><img src="gallery/3_s.jpg" alt="" /></a>
+		<a class="fancybox" href="gallery/3_b.jpg" data-fancybox-group="gallery" title="Cras neque mi, semper leon"><img src="gallery/3_s.jpg" alt="" style="display:none;" /></a>
 
-		<a class="fancybox" href="gallery/4_b.jpg" data-fancybox-group="gallery" title="Sed vel sapien vel sem uno"><img src="gallery/4_s.jpg" alt="" /></a></p>
-<p>
-	<a class="fancybox" href="gallery/1_b.jpg" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet"><img src="gallery/1_s.jpg" alt="" /></a>
-
-		<a class="fancybox" href="gallery/2_b.jpg" data-fancybox-group="gallery" title="Etiam quis mi eu elit temp"><img src="gallery/2_s.jpg" alt="" /></a>
-
-		<a class="fancybox" href="gallery/3_b.jpg" data-fancybox-group="gallery" title="Cras neque mi, semper leon"><img src="gallery/3_s.jpg" alt="" /></a>
-
-		<a class="fancybox" href="gallery/4_b.jpg" data-fancybox-group="gallery" title="Sed vel sapien vel sem uno"><img src="gallery/4_s.jpg" alt="" /></a></p>
+		<a class="fancybox" href="gallery/4_b.jpg" data-fancybox-group="gallery" title="Sed vel sapien vel sem uno"><img src="gallery/4_s.jpg" alt="" style="display:none;" /></a>
+</p>
 </div>
         </div>
 

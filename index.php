@@ -22,6 +22,16 @@
   </head>
 
   <body>
+  
+  <?php
+	
+	require_once("./admin/libs/Database.php");
+	
+	$db = Database::connect();
+	$stmt = $db->query("SELECT text FROM anasayfa");
+	$row = $stmt->fetch(PDO::FETCH_ASSOC);
+	$slogan = $row["text"];
+  ?>
 
     <!-- Fixed navbar -->
     <div class="navbar" role="navigation">
@@ -29,13 +39,13 @@
 
         <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-            <li class="active"><a href="./index.htm">ANASAYFA</a></li>
+            <li class="active"><a href="./index.php">ANASAYFA</a></li>
             <li><a class="separator">|</a></li>
-            <li><a href="./about.htm">HAKKIMIZDA</a></li>
+            <li><a href="./about.php">HAKKIMIZDA</a></li>
             <li><a class="separator">|</a></li>
-            <li><a href="./who.htm">BİZ KİMİZ</a></li>
+            <li><a href="./who.php">BİZ KİMİZ</a></li>
             <li><a class="separator">|</a></li>
-            <li><a href="./project.htm">PROJELER</a></li>
+            <li><a href="./project.php">PROJELER</a></li>
             <li><a class="separator">|</a></li>
             <li><a href="./contact.htm">İLETİŞİM</a></li>
 
@@ -54,10 +64,7 @@
           </div>
         </div>
         <div class="col-sm-8 slogan" style="padding-top: 3%;">
-          Eğer bir bina hem işlevsel,</br>
-          hem de teknik olarak</br>
-          düzgün değilse, mimari</br>
-          değildir, <span class="slogan_black">yalnızca bir binadır</span>"
+			<?php echo $slogan; ?>
         </div>
 
        
