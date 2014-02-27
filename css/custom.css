@@ -1,0 +1,177 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+ 
+  margin-bottom: 60px;
+font-family: "Gotham-ExtraLight","Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+color:#000000 !important;
+font-size: 11pt;
+text-shadow: 0 0 1px rgba(0,0,0,0.3);
+}
+#footer {
+  font-family:Helvetica, Geneva, sans-serif;
+  font-size: 9pt;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  background-color: #000000;
+}
+
+
+body > .container {
+  padding: 10px 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+#footer > .container {
+padding-right: 15px;
+padding-left: 15px;
+text-align: right;
+color: #ffffff;
+margin: 10px 0px 10px 0;
+width: 100% !important;
+
+}
+
+code {
+  font-size: 80%;
+}
+
+.navbar{
+  margin-top: 60px !important;
+margin-bottom: 5px;
+}
+
+.navbar-nav {
+margin: 0px 0px 0px 32.5% !important;
+}
+
+a:hover, a:focus {
+  text-decoration: none;
+  }
+.navbar-nav a {
+color: #000000;
+font-family: "Gotham-Bold","Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+font-size: 11pt;
+text-decoration: none;
+padding-top: 0px !important;
+padding-bottom: 0px !important;
+} 
+.navbar-nav .active a{
+  background: #000000;
+color: #ffffff !important;
+}
+.separator{
+padding: 10px !important;
+}
+.slogan{
+  font-family: "Gotham-Light","Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+  font-size: 35pt;
+}
+
+.slogan_black{
+  font-family: "Gotham-Book","Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+
+h2{
+font-family: "Gotham-Bold","Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+margin-top: 0px;
+font-size: 42px !important;
+
+}
+#content{
+	margin-bottom: 50px;
+	overflow-y: auto;
+	height: 380px;
+	text-align: justify;
+	padding-right: 10px;
+}
+
+#content .row{
+margin: 20px 0px 0px 0px;
+
+}
+
+#content::-webkit-scrollbar{
+width:8px;
+background-color:#cccccc;
+}
+#content::-webkit-scrollbar-thumb{
+width:15px;
+background-color:#333333;
+}
+#content::-webkit-scrollbar-thumb:hover{
+background-color:#999999;
+border:0px solid #333333;
+}
+#content::-webkit-scrollbar-thumb:active{
+background-color:#666666;
+border:0px solid #333333;
+}
+#content::-webkit-scrollbar-track{
+border:0px gray solid;
+}
+
+.fancybox{
+margin-right:10px;
+}
+
+.form-group {
+	margin-bottom: 0px !important;
+}
+.label{
+background-color: #252525;
+margin-bottom: 0px;
+padding: 4px;
+-webkit-border-radius: 5px 5px 0px 0px;
+color: #ffffff;
+border-radius: 5px 5px 0px 0px;
+  font-family:"Gotham-Light","Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+
+.who-item{
+	padding-right: 0px !important;
+	padding-left: 0px !important;
+	width: 160px;
+}
+.who-name{
+font-size: 24pt;
+margin-top: 0px;
+
+font-family: "Gotham-ExtraLight","Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+.form-control {
+border-radius: 0px 4px 4px 4px;
+}
+
+.form-control:focus {
+border-color: #383838;
+outline: 0;
+-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(226, 226, 226, 0.6);
+box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(152, 155, 156, 0.6);
+}
+.cform{
+border-radius: 0px 0px 5px 5px;
+background-color: #000000;
+color: #ffffff;
+margin-left: 230px;
+margin-top: 0px;
+padding: 0px 5px 0px 5px;
+}
+
+.ftitle{
+font-family: Arial, Helvetica, Geneva, sans-serif;
+
+}
+.contact-form{
+background-color: #e6e6e6;
+padding-top: 13px;
+padding-bottom: 13px;
+}

@@ -1,0 +1,183 @@
+@font-face {
+    font-family: 'GothamBlack';
+    src: url('gotham-black-webfont-webfont.eot');
+    src: url('gotham-black-webfont-webfont.eot?#iefix') format('embedded-opentype'),
+         url('gotham-black-webfont-webfont.woff') format('woff'),
+         url('gotham-black-webfont-webfont.ttf') format('truetype'),
+         url('gotham-black-webfont-webfont.svg#gothamregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GothamBook';
+    src: url('gothambook-webfont.eot');
+    src: url('gothambook-webfont.eot?#iefix') format('embedded-opentype'),
+         url('gothambook-webfont.woff') format('woff'),
+         url('gothambook-webfont.ttf') format('truetype'),
+         url('gothambook-webfont.svg#gothambookregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GothamLight';
+    src: url('gothamexlight-webfont.eot');
+    src: url('gothamexlight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('gothamexlight-webfont.woff') format('woff'),
+         url('gothamexlight-webfont.ttf') format('truetype'),
+         url('gothamexlight-webfont.svg#gothamexlightregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+ 
+  margin-bottom: 60px;
+font-family: "GothamLight","Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+#footer {
+  font-family:"GothamLight","Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+  font-size: 9pt;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  background-color: #000000;
+}
+
+
+body > .container {
+  padding: 10px 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+#footer > .container {
+padding-right: 15px;
+padding-left: 15px;
+text-align: right;
+color: #ffffff;
+margin: 10px 0px 10px 0;
+width: 100% !important;
+}
+
+code {
+  font-size: 80%;
+}
+
+.navbar{
+  margin-top: 60px !important;
+margin-bottom: 5px;
+}
+
+.navbar-nav {
+margin: 0px 0px 0px 31% !important;
+}
+
+a:hover, a:focus {
+  text-decoration: none;
+  }
+.navbar-nav a {
+color: #000000;
+font-family: "GothamBlack","Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+text-decoration: none;
+}
+
+.navbar-nav a {
+   padding-top: 0px !important;
+   padding-bottom: 0px !important;
+   } 
+.navbar-nav .active a{
+  background: #000000;
+color: #ffffff !important;
+}
+
+.slogan{
+  font-family: "GothamLight","Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+  font-size: 40pt;
+}
+
+.slogan_black{
+  font-family: "GothamBook","Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+  font-size: 40pt;
+}
+
+
+h2{
+font-family: "GothamBlack","Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+margin-top: 0px;
+}
+#content{
+	margin-bottom: 50px;
+	overflow-y: auto;
+	height: 350px;
+	text-align: justify;
+	padding-right: 10px;
+}
+
+#content .row{
+margin: 5px 0px 0px 0px;
+
+}
+
+#content::-webkit-scrollbar{
+width:8px;
+background-color:#cccccc;
+}
+#content::-webkit-scrollbar-thumb{
+width:15px;
+background-color:#333333;
+}
+#content::-webkit-scrollbar-thumb:hover{
+background-color:#999999;
+border:0px solid #333333;
+}
+#content::-webkit-scrollbar-thumb:active{
+background-color:#666666;
+border:0px solid #333333;
+}
+#content::-webkit-scrollbar-track{
+border:0px gray solid;
+}
+
+.fancybox{
+margin-right:10px;
+}
+
+.form-group {
+	margin-bottom: 0px !important;
+}
+.label{
+background-color: #252525;
+margin-bottom: 0px;
+padding: 4px;
+-webkit-border-radius: 5px 5px 0px 0px;
+color: #ffffff;
+border-radius: 5px 5px 0px 0px;
+}
+
+.form-control {
+border-radius: 0px 4px 4px 4px;
+}
+
+.form-control:focus {
+border-color: #383838;
+outline: 0;
+-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(226, 226, 226, 0.6);
+box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(152, 155, 156, 0.6);
+}
+.cform{
+border-radius: 0px 0px 5px 5px;
+background-color: #000000;
+color: #ffffff;
+margin-left: 242px;
+margin-top: 0px,
+padding: 0px 5px 0px 5px;
+}
