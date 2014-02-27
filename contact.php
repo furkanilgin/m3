@@ -81,9 +81,8 @@ if(isset($_POST["send"])){
 
     ';
 
-    if(mail_yolla("Metreküp", $mail, "furkanilgin@gmail.com", "İletişim Formu", $mesaj)){ 
+    if(mail_yolla("Metreküp", $email, "furkanilgin@gmail.com", "İletişim Formu", $mesaj)){ 
         echo "<script>alert('Mail Başarıyla Gönderildi');</script>";
-        //echo "<script>location='index.php';</script>";
     }
     else {
         echo "<script>alert('Mail Gönderimi Başarısız!');</script>";
