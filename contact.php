@@ -24,6 +24,73 @@
   </head>
 
   <body>
+  <form method="post" action="">
+  <?php
+  
+function mail_yolla($adsoyad, $kimden, $kime, $konu, $mesaj)
+{
+    $assa="\r\n";
+    $salla=md5(time());
+    $headers .= 'From: '.$adsoyad.'<'.$kime.'>'.$assa;
+    $headers .= 'Reply-To: <'.$kimden.'>'.$assa;
+    $headers .= 'Return-Path: <'.$kimden.'>'.$assa;
+    $headers .= "Message-ID: <".$now." TheSystem@".$_SERVER['SERVER_NAME'].">".$assa;
+    $headers .= "X-Mailer: PHP v".phpversion().$assa;
+    $headers .= 'MIME-Version: 1.0'.$assa;
+    $headers .= "Content-Type: multipart/related; boundary=\"".$salla."\"".$assa;
+    $msg = "";      
+    $msg .= strip_tags(str_replace("<br>", "\n", $mesaj)).$assa.$assa;
+    $msg .= "--".$salla.$assa;
+    $msg .= "Content-Type: text/html; charset=utf-8".$assa;
+    $msg .= "Content-Transfer-Encoding: 8bit".$assa;
+    $msg .= $mesaj.$assa.$assa;
+    $msg .= "--".$salla."--".$assa.$assa;
+    ini_set(sendmail_from,$kime);
+    if(mail($kime, $konu, $msg, $headers)){
+        $sonuc = true;
+    }
+    else $sonuc = false;
+    ini_restore(sendmail_from);
+    if($sonuc == true) return "ok";
+}
+
+if(isset($_POST["send"])){
+	$isim = htmlspecialchars($_POST["isim"]);
+	$email = htmlspecialchars($_POST["email"]);
+	$mesaj = htmlspecialchars($_POST["mesaj"]);
+	
+	$mesaj = '
+
+    <table cellspacing="0" cellpadding="0">
+      <tr height="20">
+        <td width="130"><b>İsim</b></td>
+        <td width="20">:</td>
+        <td width="200"> '.$isim.'</td>
+      </tr>
+      <tr height="20">
+        <td><b>Email</b></td>
+        <td width="20">:</td>
+        <td>'.$email.'</td>
+      </tr>
+      <tr height="20">
+        <td><b>Mesaj</b></td>
+        <td width="20">:</td>
+        <td>'.$mesaj.'</td>
+      </tr>
+    </table>
+
+    ';
+
+    if(mail_yolla("Metreküp", $mail, "furkanilgin@gmail.com", "İletişim Formu", $mesaj)){ 
+        echo "<script>alert('Mail Başarıyla Gönderildi');</script>";
+        //echo "<script>location='index.php';</script>";
+    }
+    else {
+        echo "<script>alert('Mail Gönderimi Başarısız!');</script>";
+    }
+}
+
+?>
 
     <!-- Fixed navbar -->
     <div class="navbar" role="navigation">
@@ -39,7 +106,7 @@
             <li><a>|</a></li>
             <li><a href="./project.php">PROJELER</a></li>
             <li><a>|</a></li>
-            <li class="active"><a href="./contact.htm">İLETİŞİM</a></li>
+            <li class="active"><a href="./contact.php">İLETİŞİM</a></li>
 
           </ul>
         </div><!--/.nav-collapse -->
@@ -73,14 +140,14 @@ Kozyatağı Bayar Cd. Yeniyol Sk. No :7/3 Kadıköy / İstanbul</br>
 <div class="col-sm-12">
  <span class="label">İsim</span>
     
-<input type="text" class="form-control" >
+<input name="isim" type="text" class="form-control" >
     </div>
   </div>
   <div class="form-group">
     
     <div class="col-sm-12">
 <span class="label">Email</span>
-<input type="text" class="form-control">
+<input type="text" name="email" class="form-control">
     </div>
   </div>
 
@@ -88,8 +155,8 @@ Kozyatağı Bayar Cd. Yeniyol Sk. No :7/3 Kadıköy / İstanbul</br>
    
     <div class="col-sm-12">
 <span class="label">Mesaj</span>
-    <textarea class="form-control" rows="3"></textarea>
-<button type="button" class="btn btn-default cform">Gönder</button>
+    <textarea name="mesaj" class="form-control" rows="3"></textarea>
+<input type="submit" id="send" name="send" class="btn btn-default cform" value="Gönder" />
     </div>
   </div>
 </form>
@@ -245,5 +312,6 @@ Kozyatağı Bayar Cd. Yeniyol Sk. No :7/3 Kadıköy / İstanbul</br>
 
 		});
 	</script>
+	</form>
   </body>
 </html>

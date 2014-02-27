@@ -48,7 +48,7 @@
             <li><a>|</a></li>
             <li><a href="./project.php">PROJELER</a></li>
             <li><a>|</a></li>
-            <li><a href="./contact.htm">İLETİŞİM</a></li>
+            <li><a href="./contact.php">İLETİŞİM</a></li>
 
           </ul>
         </div><!--/.nav-collapse -->
