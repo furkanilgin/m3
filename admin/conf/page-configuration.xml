@@ -1,0 +1,10 @@
+<pages>
+	<page name="test" model="Test.php" view="Test.xhtml" controller="TestController.php" />
+	<page name="account" model="Account.php" view="Account.xhtml" controller="AccountController.php" />
+	<page name="home" model="Home.php" view="Home.xhtml" controller="HomeController.php" />
+	<page name="anasayfa" model="Anasayfa.php" view="Anasayfa.xhtml" controller="AnasayfaController.php" />
+	<page name="hakkimizda" model="Hakkimizda.php" view="Hakkimizda.xhtml" controller="HakkimizdaController.php" />
+	<page name="bizkimiz" model="Bizkimiz.php" view="Bizkimiz.xhtml" controller="BizkimizController.php" />
+	<page name="proje" model="Proje.php" view="Proje.xhtml" controller="ProjeController.php" />
+	<page name="fotograf" model="Fotograf.php" view="Fotograf.xhtml" controller="FotografController.php" />
+</pages>

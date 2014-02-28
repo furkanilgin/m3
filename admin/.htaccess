@@ -1,0 +1,10 @@
+Options +FollowSymlinks -MultiViews
+RewriteEngine On
+RewriteBase /
+
+<IfModule mod_speling.so>
+  CheckCaseOnly On
+  CheckSpelling On
+</IfModule>
+
+DirectoryIndex ./libs/Panel/index.php

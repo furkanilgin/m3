@@ -27,31 +27,65 @@
   <form method="post" action="">
   <?php
   
-function mail_yolla($adsoyad, $kimden, $kime, $konu, $mesaj)
-{
-    $assa="\r\n";
-    $salla=md5(time());
-    $headers .= 'From: '.$adsoyad.'<'.$kime.'>'.$assa;
-    $headers .= 'Reply-To: <'.$kimden.'>'.$assa;
-    $headers .= 'Return-Path: <'.$kimden.'>'.$assa;
-    $headers .= "Message-ID: <".$now." TheSystem@".$_SERVER['SERVER_NAME'].">".$assa;
-    $headers .= "X-Mailer: PHP v".phpversion().$assa;
-    $headers .= 'MIME-Version: 1.0'.$assa;
-    $headers .= "Content-Type: multipart/related; boundary=\"".$salla."\"".$assa;
-    $msg = "";      
-    $msg .= strip_tags(str_replace("<br>", "\n", $mesaj)).$assa.$assa;
-    $msg .= "--".$salla.$assa;
-    $msg .= "Content-Type: text/html; charset=utf-8".$assa;
-    $msg .= "Content-Transfer-Encoding: 8bit".$assa;
-    $msg .= $mesaj.$assa.$assa;
-    $msg .= "--".$salla."--".$assa.$assa;
-    ini_set(sendmail_from,$kime);
-    if(mail($kime, $konu, $msg, $headers)){
-        $sonuc = true;
-    }
-    else $sonuc = false;
-    ini_restore(sendmail_from);
-    if($sonuc == true) return "ok";
+error_reporting(0);
+
+class Mail{
+	
+	public $sonuc;
+
+	function __construct($kimden, $kime, $konu, $mesaj){
+
+		require_once('class.phpmailer.php');
+		require_once('class.phpmailer_gmail.php');
+
+
+		$address = $kime;
+		$body = $mesaj;
+		$fromName = $kimden;
+		$subject  = $konu;
+
+		$username = "info@metrekup.net";
+		$password = "metre3Kup";
+
+		$mail = new PHPMailer();
+		$mail->SetLanguage("tr","language/");
+		$mail->CharSet="utf-8";
+		$mail->Username = $username;
+		$mail->Password = $password;
+		$mail->Host = "mail.".substr($username, strpos($username, "@")+1);
+		$mail->From = $username;		
+		$mail->FromName = $fromName;	
+		$mail->Subject = $subject;
+		$mail->AddAddress($address);
+		$mail->AddAttachment($attachment);
+		$mail->IsHTML(true); 
+		$mail->Body = $body;
+
+		if(!$mail->Send()) {	// STMP yolla
+			$mail = new PHPMailer_gmail();
+			$mail -> IsHTML (true);
+			$mail->IsSMTP();
+			$mail->Host = 'ssl://smtp.gmail.com';
+			$mail->Port = 465;
+			$mail->SMTPAuth = true;
+			$mail->SetLanguage("tr","language/");
+			$mail->CharSet="utf-8";
+			$mail->Username = $username;
+			$mail->Password = $password;
+			$mail->From = $username;
+			$mail->FromName = $fromName;
+			$mail->Subject = $subject;
+			$mail->AddAddress($address);
+			$mail->AddAttachment($attachment);
+			$mail->IsHTML(true); 
+			$mail->Body = $body;
+			$this->sonuc = $mail->Send();
+		}
+		else{ $this->sonuc = true; }
+
+		if($this->sonuc) echo "<script>alert('Mail başarıyla gönderildi');</script>";  else echo "<script>alert('Mail gönderimi başarısız');</script>";
+
+	}
 }
 
 if(isset($_POST["send"])){
@@ -59,7 +93,7 @@ if(isset($_POST["send"])){
 	$email = htmlspecialchars($_POST["email"]);
 	$mesaj = htmlspecialchars($_POST["mesaj"]);
 	
-	$mesaj = '
+	$html = '
 
     <table cellspacing="0" cellpadding="0">
       <tr height="20">
@@ -81,12 +115,7 @@ if(isset($_POST["send"])){
 
     ';
 
-    if(mail_yolla("Metreküp", $email, "furkanilgin@gmail.com", "İletişim Formu", $mesaj)){ 
-        echo "<script>alert('Mail Başarıyla Gönderildi');</script>";
-    }
-    else {
-        echo "<script>alert('Mail Gönderimi Başarısız!');</script>";
-    }
+    new Mail("Metreküp", "info@metrekup.net", "İletişim Formu", $html);
 }
 
 ?>

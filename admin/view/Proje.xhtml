@@ -1,0 +1,33 @@
+<view>
+	<pageTop property="#{proje->p_Pagetop}">
+		<logo src="./view/images/logo.jpg" height="76" width="75" top="10" href="home" />
+	</pageTop>
+	<menu property="#{proje->m_Menu}">
+		<menuItem id="account" type="account" href="account" />
+		<menuItem id="logout" type="logout" action="logout();" />
+		<menuItem id="anasayfa" title="Anasayfa" href="anasayfa" />
+		<menuItem id="hakkimizda" title="Hakkımızda" href="hakkimizda" />
+		<menuItem id="biz_kimiz" title="Biz Kimiz" href="bizkimiz" />
+		<menuItem id="projeler" title="Projeler" current="yes">
+			<subMenuItem title="Proje Ekle" href="proje" current="yes"></subMenuItem>
+			<subMenuItem title="Fotoğraf Ekle" href="fotograf"></subMenuItem>
+		</menuItem>
+	</menu>
+	<panel property="#{proje->p_Panel}" title="Proje Ekle">
+		<input id="id" name="id" label="Id" display="false" />
+		<input id="projeadi" name="projeadi" label="Proje Adı" required="true" />
+		<file id="fotograf" name="fotograf" label="Kapak Fotoğrafı" required="true" />
+		<button id="save" name="save" action="save();" />
+		<datagrid>
+			<column type="data" title="No" width="5%" />
+			<column type="data" title="Proje Adı" width="25%" />
+			<column title="Kapak Fotoğrafı" width="25%">
+				<imageLink />
+			</column>
+			<column title="Ayarlar" width="20%">
+				<editButton title="Edit" action="edit();" />
+				<deleteButton title="Delete" action="delete();" />
+			</column>
+		</datagrid>
+	</panel>
+</view>

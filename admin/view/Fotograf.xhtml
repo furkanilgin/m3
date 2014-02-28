@@ -1,0 +1,33 @@
+<view>
+	<pageTop property="#{fotograf->p_Pagetop}">
+		<logo src="./view/images/logo.jpg" height="76" width="75" top="10" href="home" />
+	</pageTop>
+	<menu property="#{fotograf->m_Menu}">
+		<menuItem id="account" type="account" href="account" />
+		<menuItem id="logout" type="logout" action="logout();" />
+		<menuItem id="anasayfa" title="Anasayfa" href="anasayfa" />
+		<menuItem id="hakkimizda" title="Hakkımızda" href="hakkimizda" />
+		<menuItem id="biz_kimiz" title="Biz Kimiz" href="bizkimiz" />
+		<menuItem id="projeler" title="Projeler" current="yes">
+			<subMenuItem title="Proje Ekle" href="proje"></subMenuItem>
+			<subMenuItem title="Fotoğraf Ekle" href="fotograf" current="yes"></subMenuItem>
+		</menuItem>
+	</menu>
+	<panel property="#{fotograf->p_Panel}" title="Fotograf Ekle">
+		<input id="id" name="id" label="Id" display="false" />
+		<select id="proje" name="proje" label="Proje" />
+		<file id="fotograf" name="fotograf" label="Fotoğraf" required="true" />
+		<button id="save" name="save" action="save();" />
+		<datagrid>
+			<column type="data" title="No" width="5%" />
+			<column type="data" title="Proje" width="25%" />
+			<column title="Fotoğraf" width="25%">
+				<imageLink />
+			</column>
+			<column title="Ayarlar" width="20%">
+				<editButton title="Edit" action="edit();" />
+				<deleteButton title="Delete" action="delete();" />
+			</column>
+		</datagrid>
+	</panel>
+</view>

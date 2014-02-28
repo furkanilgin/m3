@@ -1,0 +1,5 @@
+Options +FollowSymlinks -MultiViews
+RewriteEngine On
+RewriteBase /
+
+DirectoryIndex ./index.php
